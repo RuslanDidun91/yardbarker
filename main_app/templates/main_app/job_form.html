@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="profile_page">
+  {% if object %} 
+    <h1>Edit {{object.name}}</h1>
+  {% endif %}
+    
+  <form action="" method="POST" id="job-form">
+    {% csrf_token %}
+    <table>
+      {{ form.as_table }}
+    </table>
+    <p class="disclaimer">*Please add photos of your job (if applicable) after hitting submit and successfully adding your job.</p>
+    <input type="submit" value="SUBMIT" class="btn" id="job_submit">
+  </form>
+</div>
+
+
+<script>
+  const selectEl = document.getElementById('id_isDone');
+  M.FormSelect.init(selectEl);
+</script>
+
+{% endblock %}
